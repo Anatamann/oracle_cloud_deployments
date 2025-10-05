@@ -1,0 +1,172 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #222;
+    color: #eee;
+}
+
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.emoji {
+    width: 200px;
+    height: 200px;
+    border: 5px solid #888;
+    border-radius: 50%;
+    position: relative;
+}
+
+.eye {
+    width: 40px;
+    height: 5px;
+    background-color: #888;
+    border-radius: 0;
+    position: absolute;
+    top: 70px;
+    border: none;
+}
+
+.eye.left {
+    left: 40px;
+}
+
+.eye.right {
+    right: 40px;
+}
+
+.mouth {
+    width: 80px;
+    height: 40px;
+    border: 5px solid #888;
+    border-color: transparent transparent #888 transparent;
+    border-radius: 0 0 80px 80px;
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%) rotate(10deg);
+}
+
+.eyeball {
+    width: 10px;
+    height: 10px;
+    background-color: #888;
+    border-radius: 50%;
+    position: absolute;
+    top: 15px;
+    left: 5px;
+    transform: none;
+}
+
+#shuffle-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: 1px solid #888;
+    background-color: #333;
+    color: #eee;
+    border-radius: 5px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.7);
+}
+
+.modal-content {
+    background-color: #333;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+    color: #eee;
+}
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+#loader {
+    font-size: 50px;
+    color: #888;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes move-eyes {
+    0% { left: 5px; }
+    50% { left: 25px; }
+    100% { left: 5px; }
+}
+
+.loading .eyeball {
+    animation: move-eyes 1s infinite;
+}
+
+@media (max-width: 600px) {
+    .emoji {
+        width: 150px;
+        height: 150px;
+    }
+
+    .eye {
+        width: 30px;
+        top: 50px;
+    }
+
+    .eye.left {
+        left: 30px;
+    }
+
+    .eye.right {
+        right: 30px;
+    }
+
+    .mouth {
+        width: 60px;
+        bottom: 30px;
+    }
+
+    .eyeball {
+        width: 8px;
+        height: 8px;
+        top: 10px;
+    }
+
+    #shuffle-btn {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    .modal-content {
+        width: 90%;
+        margin: 30% auto;
+    }
+}
